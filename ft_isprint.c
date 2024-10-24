@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 22:30:38 by stakada           #+#    #+#             */
-/*   Updated: 2024/04/30 21:48:13 by stakada          ###   ########.fr       */
+/*   Created: 2024/10/24 18:52:15 by stakada           #+#    #+#             */
+/*   Updated: 2026/02/17 15:44:29 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int ft_isprint(int c)
 {
-	return (c >= 32 && c <= 126);
+	return (c >= ' ' && c <= '~');
 }

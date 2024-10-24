@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 22:28:12 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/02 06:13:36 by stakada          ###   ########.fr       */
+/*   Created: 2024/10/24 18:50:02 by stakada           #+#    #+#             */
+/*   Updated: 2026/02/17 15:44:24 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int ft_isascii(int c)
 {
 	return (c >= 0 && c <= 127);
 }

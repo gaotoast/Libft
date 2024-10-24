@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 21:58:54 by stakada           #+#    #+#             */
-/*   Updated: 2024/04/30 21:48:05 by stakada          ###   ########.fr       */
+/*   Created: 2024/10/24 18:34:25 by stakada           #+#    #+#             */
+/*   Updated: 2026/02/17 15:44:26 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
