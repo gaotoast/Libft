@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 03:34:35 by stakada           #+#    #+#             */
-/*   Updated: 2024/04/18 00:22:02 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/07 19:24:13 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/07 21:38:40 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c)
+int ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
