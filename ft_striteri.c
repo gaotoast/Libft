@@ -5,19 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 19:09:50 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:35:26 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 23:07:15 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/08 23:08:32 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	unsigned int	i;
+	unsigned int i;
 
-	if (!s || !f)
-		return ;
 	i = 0;
 	while (s[i])
 	{

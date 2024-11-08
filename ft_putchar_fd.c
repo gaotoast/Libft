@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 19:17:55 by stakada           #+#    #+#             */
-/*   Updated: 2024/04/30 08:21:05 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 23:08:56 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/08 23:12:59 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
