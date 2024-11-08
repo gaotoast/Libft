@@ -5,20 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 03:55:34 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/03 21:36:14 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 17:13:42 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/08 17:26:05 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-	while (n--)
+	size_t i;
+	unsigned char *m;
+	
+	i = 0;
+	m = (unsigned char *)s;
+	while (i < n)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
-			return ((void *)s);
-		s++;
+		if (m[i] == (unsigned char)c)
+			return ((void *)&(m[i]));
+		i++;
 	}
 	return (NULL);
 }
