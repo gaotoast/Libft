@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 03:52:25 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:42:21 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 16:46:05 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/08 17:12:11 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	while (n--)
+	size_t i;
+
+	i = 0;
+	while ((s1[i] || s2[i]) && i < n)
 	{
-		if ((unsigned char)*s1 != (unsigned char)*s2)
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		if (*s1 == '\0' || *s2 == '\0')
-			return (0);
-		s1++;
-		s2++;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
 	return (0);
 }
