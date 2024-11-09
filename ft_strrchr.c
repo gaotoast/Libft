@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 19:34:28 by stakada           #+#    #+#             */
-/*   Updated: 2024/11/07 21:41:15 by stakada          ###   ########.fr       */
+/*   Updated: 2024/11/10 00:12:57 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char *ft_strrchr(const char *s, int c)
 {
 	int i;
 
-	i = ft_strlen(s) - 1;
+	i = ft_strlen(s);
 	if ((char)c == '\0')
 		return ((char *)&s[i]);
 	while (i >= 0)
