@@ -5,20 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 17:42:51 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:21:14 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/11 19:15:49 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 19:17:44 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->content);
-		lst = lst->next;
-	}
+    while (lst)
+    {
+        f(lst->content);
+        lst = lst->next;
+    }
 }
