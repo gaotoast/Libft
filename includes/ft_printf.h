@@ -6,7 +6,7 @@
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 00:14:43 by stakada           #+#    #+#             */
-/*   Updated: 2024/12/17 14:26:33 by stakada          ###   ########.fr       */
+/*   Updated: 2024/12/17 14:42:57 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define BASE_16_UP "0123456789ABCDEF"
 
 int	ft_printf(const char *fmt, ...);
+int	ft_dprintf(int fd, const char *fmt, ...);
 int	ft_vprintf(const char *fmt, va_list ap);
 int	ft_vdprintf(int fd, const char *fmt, va_list ap);
 int	dispatcher(int fd, char cspec, va_list ap);
