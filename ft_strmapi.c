@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 14:40:50 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:39:48 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 23:03:12 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 23:37:47 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,20 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
+	char			*str;
 	unsigned int	i;
-	char			*result;
 
 	if (!s || !f)
 		return (NULL);
-	result = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!result)
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
 		return (NULL);
 	i = 0;
 	while (s[i])
 	{
-		result[i] = f(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	result[i] = '\0';
-	return (result);
+	str[i] = '\0';
+	return (str);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-//     const char *s = "hello";
-//     char *result = ft_strmapi(s, to_upper);
-//     printf("Result: %s\n", result);
-//     return (0);
-// }

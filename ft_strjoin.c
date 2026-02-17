@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 19:13:37 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:37:30 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 20:43:34 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:23:03 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*result;
-	char	*result_start;
+	char	*joined;
+	size_t	len;
 
 	if (!s1 || !s2)
 		return (NULL);
-	result = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (!result)
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	joined = (char *)malloc(sizeof(char) * len);
+	if (!joined)
 		return (NULL);
-	result_start = result;
-	while (*s1)
-		*result++ = *s1++;
-	while (*s2)
-		*result++ = *s2++;
-	*result = '\0';
-	return (result_start);
+	joined[0] = '\0';
+	ft_strlcpy(joined, s1, ft_strlen(s1) + 1);
+	ft_strlcat(joined, s2, len);
+	return (joined);
 }

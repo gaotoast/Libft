@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 17:42:51 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:21:14 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/11 19:15:49 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 23:47:49 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst || !f)
+	if (!f)
 		return ;
 	while (lst)
 	{

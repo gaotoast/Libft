@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 23:08:16 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/02 04:00:22 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 20:07:33 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:21:32 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*result;
 
-	if (count > 0 && SIZE_MAX / count < size)
+	if (size > 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
-	result = malloc(count * size);
-	if (result == NULL)
+	result = malloc(nmemb * size);
+	if (!result)
 		return (NULL);
-	ft_bzero(result, count * size);
+	ft_bzero(result, nmemb * size);
 	return (result);
 }

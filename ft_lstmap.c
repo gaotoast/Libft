@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 17:52:06 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:27:35 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/11 19:18:57 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 23:56:39 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*start;
 	t_list	*tmp;
-	void	*after_f;
 
-	if (!lst || !f || !del)
+	if (!f || !del)
 		return (NULL);
 	start = NULL;
 	while (lst)
 	{
-		after_f = f(lst->content);
-		tmp = ft_lstnew(after_f);
+		tmp = ft_lstnew(f(lst->content));
 		if (!tmp)
 		{
 			ft_lstclear(&start, del);
-			del(after_f);
 			return (NULL);
 		}
 		ft_lstadd_back(&start, tmp);

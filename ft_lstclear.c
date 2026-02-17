@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 17:32:15 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:20:04 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/11 16:56:15 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 23:33:13 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*next;
+	t_list	*tmp;
 
 	if (!lst || !del)
 		return ;
 	while (*lst)
 	{
-		next = (*lst)->next;
+		tmp = (*lst)->next;
 		ft_lstdelone(*lst, del);
-		*lst = next;
+		*lst = tmp;
 	}
 }

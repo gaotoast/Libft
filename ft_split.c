@@ -5,108 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 02:24:51 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:33:42 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 21:19:45 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:22:53 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	word_length(const char *str, char c)
+static int	count_words(char const *s, char c)
 {
-	size_t	len;
-
-	len = 0;
-	while (str[len] && str[len] != c)
-		len++;
-	return (len);
-}
-
-static size_t	count_words(const char *str, char c)
-{
-	size_t	count;
+	int	count;
 
 	count = 0;
-	while (*str)
+	while (*s)
 	{
-		while (*str && *str == c)
-			str++;
-		if (*str)
+		while (*s == c)
+			s++;
+		if (*s)
 		{
 			count++;
-			while (*str && *str != c)
-				str++;
+			while (*s && *s != c)
+				s++;
 		}
 	}
 	return (count);
 }
 
-static char	**ft_split_support(char **tmp, char const *str, char c,
-		size_t word_count)
+static char	**contain_words(char **strs, char const *s, char c, int words)
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
+	int	i;
+	int	len;
 
 	i = 0;
-	while (i < word_count)
+	while (i < words)
 	{
-		while (*str && *str == c)
-			str++;
-		len = word_length(str, c);
-		tmp[i] = (char *)malloc(sizeof(char) * (len + 1));
-		if (!tmp[i])
+		while (*s == c)
+			s++;
+		len = 0;
+		while (s[len] && s[len] != c)
+			len++;
+		strs[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!strs[i])
 		{
 			while (i--)
-				free(tmp[i]);
-			free(tmp);
+				free(strs[i]);
+			free(strs);
 			return (NULL);
 		}
-		j = 0;
-		while (j < len)
-			tmp[i][j++] = *str++;
-		tmp[i][j] = '\0';
+		strs[i][0] = '\0';
+		ft_strlcpy(strs[i], s, len + 1);
+		s += len;
 		i++;
 	}
-	return (tmp);
+	return (strs);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(char const *s, char c)
 {
-	size_t	word_count;
-	char	**result;
+	int		words;
+	char	**strs;
 
-	if (!str)
+	words = count_words(s, c);
+	strs = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!strs)
 		return (NULL);
-	word_count = count_words(str, c);
-	result = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!result)
-		return (NULL);
-	result = ft_split_support(result, str, c, word_count);
-	if (!result)
-		return (NULL);
-	result[word_count] = NULL;
-	return (result);
+	strs = contain_words(strs, s, c, words);
+	strs[words] = NULL;
+	return (strs);
 }
-
-// #include <libc.h>
-
-// __attribute__((destructor))
-// static void destructor() {
-//     system("leaks -q a.out");
-// }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char	**result1;
-// 	result1 = ft_split("hello!", ' ');
-// 	printf("Test 1\n");
-// 	for (int i = 0; result1[i] != NULL; i++)
-// 	{
-// 		printf("box %d: %s\n", i, result1[i]);
-// 		free(result1[i]);
-// 	}
-// 	free(result1);
-// }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 09:44:54 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:28:51 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/11 00:58:58 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/11 19:56:15 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	count;
+	int	size;
 
-	count = 0;
+	size = 0;
 	while (lst)
 	{
-		count++;
+		size++;
 		lst = lst->next;
 	}
-	return (count);
+	return (size);
 }

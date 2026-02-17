@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/18 02:05:28 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:45:05 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 20:23:18 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:23:34 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*result;
-	char	*result_start;
-	size_t	str_len;
+	char	*sub;
+	size_t	i;
 
-	if (!s)
-		return (NULL);
-	else if (start >= ft_strlen(s))
+	i = 0;
+	if (start >= ft_strlen(s) || len == 0)
 		return (ft_strdup(""));
-	if (len > ft_strlen(&s[start]))
-		str_len = ft_strlen(&s[start]);
+	if (ft_strlen(&s[start]) < len)
+		return (ft_strdup(&s[start]));
 	else
-		str_len = len;
-	result = (char *)malloc(sizeof(char) * (str_len + 1));
-	if (!result)
-		return (NULL);
-	result_start = result;
-	while (str_len-- && s[start])
-		*result++ = s[start++];
-	*result = '\0';
-	return (result_start);
+	{
+		sub = (char *)malloc(sizeof(char) * (len + 1));
+		if (!sub)
+			return (NULL);
+		while (i < len)
+		{
+			sub[i] = s[start + i];
+			i++;
+		}
+		sub[i] = '\0';
+		return (sub);
+	}
 }

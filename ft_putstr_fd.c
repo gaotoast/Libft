@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 19:41:50 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:31:55 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/08 23:09:40 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:22:50 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	if (!s)
-		return ;
-	while (*s)
-		write(fd, s++, 1);
+	write(fd, s, ft_strlen(s));
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-//   ft_putstr_fd("test", 1);
-//   printf("%c", '\n');
-//   return (0);
-// }

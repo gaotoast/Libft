@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 03:41:35 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:34:17 by stakada          ###   ########.fr       */
+/*   Created: 2024/11/07 19:31:22 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/15 21:37:51 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
 	if ((char)c == '\0')
-		return ((char *)s);
+		return ((char *)&s[i]);
 	return (NULL);
 }

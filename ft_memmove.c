@@ -5,31 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stakada <stakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/17 04:38:37 by stakada           #+#    #+#             */
-/*   Updated: 2024/05/17 10:30:05 by stakada          ###   ########.fr       */
+/*   Created: 2024/10/24 20:38:40 by stakada           #+#    #+#             */
+/*   Updated: 2024/11/10 00:22:33 by stakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	void	*start;
+	unsigned char		*d;
+	const unsigned char	*s;
+	int					i;
 
-	if (!dst && !src)
-		return (NULL);
-	start = dst;
-	if (dst < src)
+	d = (unsigned char *)dest;
+	s = (const unsigned char *)src;
+	if (s > d)
 	{
-		while (len--)
-			*(unsigned char *)dst++ = *(const unsigned char *)src++;
+		while (n--)
+			*d++ = *s++;
 	}
-	else
+	else if (s < d)
 	{
-		dst += len - 1;
-		src += len - 1;
-		while (len--)
-			*(unsigned char *)dst-- = *(const unsigned char *)src--;
+		i = n - 1;
+		while (i >= 0)
+		{
+			d[i] = s[i];
+			i--;
+		}
 	}
-	return (start);
+	return (dest);
 }
